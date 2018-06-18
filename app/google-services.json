@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "167529454781",
+    "firebase_url": "https://breedapp-d8965.firebaseio.com",
+    "project_id": "breedapp-d8965",
+    "storage_bucket": "breedapp-d8965.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:167529454781:android:576f6594fedfcd5c",
+        "android_client_info": {
+          "package_name": "com.example.user.animal_breedapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "167529454781-4vlkgjo6vkmp2gemcnobndsqgp7ac26i.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "167529454781-4vlkgjo6vkmp2gemcnobndsqgp7ac26i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2itTskffJiZOYKiAN0EfT2pycZ34Eajk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
