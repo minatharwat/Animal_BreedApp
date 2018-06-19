@@ -1,12 +1,14 @@
 package com.example.user.animal_breedapp.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.example.user.animal_breedapp.DetailCategory;
 import com.example.user.animal_breedapp.Models.CategoreItem;
 import com.example.user.animal_breedapp.R;
 import com.squareup.picasso.Picasso;
@@ -84,10 +86,13 @@ public class Categorie_RecycleAdapter extends RecyclerView.Adapter<Categorie_Rec
         @Override
         public void onClick(View v) {
             pos = getLayoutPosition();
-           // Intent intent = new Intent(v.getContext(), DetailActivity.class);
-        //    intent.putExtra("position", getLayoutPosition());
+            Intent intent = new Intent(v.getContext(), DetailCategory.class);
+            intent.putExtra("position", getLayoutPosition());
+            intent.putExtra("name_c", m.get(pos).getName());
+            intent.putExtra("image_c", m.get(pos).getCategorie_image());
+            itemView.getContext().startActivity(intent);
 
-           // itemView.getContext().startActivity(intent);
+
 
 
         }

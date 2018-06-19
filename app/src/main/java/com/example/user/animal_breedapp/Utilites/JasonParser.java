@@ -2,6 +2,7 @@ package com.example.user.animal_breedapp.Utilites;
 
 import android.content.Context;
 
+import com.example.user.animal_breedapp.Models.Animal;
 import com.example.user.animal_breedapp.Models.CategoreItem;
 
 import org.json.JSONArray;
@@ -98,7 +99,35 @@ public class JasonParser {
         }   //  FINALLY
     }
 
+    public static ArrayList<Animal> parseAnimals(String r) {
 
+        ArrayList<Animal> all=new ArrayList<Animal>();
 
+        Animal item;
+        String s = null;
+        try {
+            JSONObject data_object;
+
+            JSONObject js = new JSONObject(r);
+                JSONArray ja=js.getJSONArray("message");////todo massage
+
+            for (int j=0;j <ja.length();j++) {
+                String da = ja.getString(j);
+
+                item = new Animal();
+                item.setName_an(da);
+                all.add(item);
+            }
+
+           // }
+        }   // TRY
+
+        catch (JSONException e) {
+            e.printStackTrace();
+        } finally {
+        }
+
+            return all;
+        }
 
 }

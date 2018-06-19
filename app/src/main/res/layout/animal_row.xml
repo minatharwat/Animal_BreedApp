@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        card_view:cardElevation="10dp"
+        card_view:cardCornerRadius="20dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/image_ani"
+            android:layout_width="70sp"
+            android:scaleType="fitXY"
+            android:layout_height="match_parent"
+            android:src="@drawable/im"
+            android:fitsSystemWindows="true"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="12dp"
+            android:id="@+id/animal_name"
+            android:gravity="center_vertical"
+            android:paddingLeft="18dp"
+            android:text="animal name"
+            android:textSize="18sp"
+            android:textColor="@color/colorPrimary"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
