@@ -87,7 +87,6 @@ public class Categorie_RecycleAdapter extends RecyclerView.Adapter<Categorie_Rec
         public void onClick(View v) {
             pos = getLayoutPosition();
             Intent intent = new Intent(v.getContext(), DetailCategory.class);
-            intent.putExtra("position", getLayoutPosition());
             intent.putExtra("name_c", m.get(pos).getName());
             intent.putExtra("image_c", m.get(pos).getCategorie_image());
             itemView.getContext().startActivity(intent);

@@ -23,7 +23,6 @@ import java.util.List;
 
 public class DetailCategory extends AppCompatActivity implements Volley.API{
 
-    public static int position_re;
     public static String name_re;
     public static String image_re;
     TextView title;
@@ -37,7 +36,6 @@ public class DetailCategory extends AppCompatActivity implements Volley.API{
         setContentView(R.layout.activity_detail_categorie);
 
 
-        position_re=getIntent().getExtras().getInt("position");
         name_re=getIntent().getExtras().getString("name_c");
         image_re=getIntent().getExtras().getString("image_c");
 
