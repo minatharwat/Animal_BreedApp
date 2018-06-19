@@ -8,7 +8,8 @@ public class Animal {
     private String name_an;
     private String img_an;
 
-    public Animal(){}
+    public Animal() {
+    }
 
     public String getName_an() {
         return name_an;

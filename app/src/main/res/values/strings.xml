@@ -6,6 +6,7 @@
     <string name="base">https://dog.ceo/api/breed/</string>
     <string name="catgore_image">/images/random</string>
     <string name="hint_search">Search</string>
+    <string name="hint_plus">add</string>
 
 
 </resources>

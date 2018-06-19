@@ -22,20 +22,18 @@ public class DetailAnimal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_animal);
 
-       //get intent data
-        name_categorie=getIntent().getExtras().getString("cat_na");
-        image_categorie=getIntent().getExtras().getString("cat_im");
-        animal_name=getIntent().getExtras().getString("name_ani");
-       //intilize views
-        n=findViewById(R.id.Animal_namee);
-        c=findViewById(R.id.Categore_namee);
-        i=findViewById(R.id.Animal_imagee);
+        //get intent data
+        name_categorie = getIntent().getExtras().getString("cat_na");
+        image_categorie = getIntent().getExtras().getString("cat_im");
+        animal_name = getIntent().getExtras().getString("name_ani");
+        //intilize views
+        n = findViewById(R.id.Animal_namee);
+        c = findViewById(R.id.Categore_namee);
+        i = findViewById(R.id.Animal_imagee);
         //set data
         Picasso.with(this).load(image_categorie).error(R.drawable.no_img).placeholder(R.drawable.no_img).into(i);
         n.setText(animal_name);
         c.setText(name_categorie);
-
-
 
 
     }

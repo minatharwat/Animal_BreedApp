@@ -45,10 +45,17 @@ public class HomeActivity extends AppCompatActivity implements Volley.API {
     public static List<CategoreItem> Breed_List;
     public static int Counter = 0;
     public static SQLiteDatabase database;
+    public static int x = 0;
     public Categorie_RecycleAdapter recycle_categorie;
     public RecyclerView recyclerView;
 
-    public static int x = 0;
+    public static long addcategorie_sqlLite(String name, String image) {
+        ContentValues cv = new ContentValues();
+        cv.put(U_COLUMN_NAME, name);
+        cv.put(DatabaseContract.Categorie.U_COLUMN_image, image);
+
+        return database.insertWithOnConflict(TABLE_NAME, null, cv, SQLiteDatabase.CONFLICT_REPLACE);
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -77,16 +84,6 @@ public class HomeActivity extends AppCompatActivity implements Volley.API {
         checkConnection();
 
     }
-
-
-    public static long addcategorie_sqlLite(String name, String image) {
-        ContentValues cv = new ContentValues();
-        cv.put(U_COLUMN_NAME, name);
-        cv.put(DatabaseContract.Categorie.U_COLUMN_image, image);
-
-        return database.insertWithOnConflict(TABLE_NAME, null, cv, SQLiteDatabase.CONFLICT_REPLACE);
-    }
-
 
     public List<CategoreItem> getAllData() {
         String countQuery = "SELECT  * FROM " + TABLE_NAME;
@@ -211,7 +208,7 @@ public class HomeActivity extends AppCompatActivity implements Volley.API {
 
         //______________
         // Get SearchView autocomplete object.
-        final SearchView.SearchAutoComplete searchAutoComplete = (SearchView.SearchAutoComplete)searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
+        final SearchView.SearchAutoComplete searchAutoComplete = (SearchView.SearchAutoComplete) searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
         searchAutoComplete.setBackgroundColor(getResources().getColor(R.color.colorAccent));
         searchAutoComplete.setTextColor(getResources().getColor(R.color.colorWhite));
         searchAutoComplete.setDropDownBackgroundResource(getResources().getColor(R.color.colorAccent));
@@ -226,7 +223,6 @@ public class HomeActivity extends AppCompatActivity implements Volley.API {
         }
 
 
-
         ArrayAdapter<String> breed_names = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, array);
         searchAutoComplete.setAdapter(breed_names);
 
@@ -234,13 +230,13 @@ public class HomeActivity extends AppCompatActivity implements Volley.API {
         searchAutoComplete.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int itemIndex, long id) {
-                String queryString=(String) adapterView.getItemAtPosition(itemIndex);
-                for (int k=0;k<Breed_List.size();k++) {
-                    if (queryString.equals(Breed_List.get(k).getName())){
+                String queryString = (String) adapterView.getItemAtPosition(itemIndex);
+                for (int k = 0; k < Breed_List.size(); k++) {
+                    if (queryString.equals(Breed_List.get(k).getName())) {
 
                         Intent intentQ = new Intent(getApplicationContext(), DetailCategory.class);
-                        intentQ.putExtra("name_c",Breed_List.get(k).getName());
-                        intentQ.putExtra("image_c",Breed_List.get(k).getCategorie_image());
+                        intentQ.putExtra("name_c", Breed_List.get(k).getName());
+                        intentQ.putExtra("image_c", Breed_List.get(k).getCategorie_image());
                         startActivity(intentQ);
                     }
 
@@ -263,12 +259,12 @@ public class HomeActivity extends AppCompatActivity implements Volley.API {
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                 @Override
                 public boolean onQueryTextSubmit(String s) {
-                    for (int k=0;k<Breed_List.size();k++) {
-                        if (s.equals(Breed_List.get(k).getName())){
+                    for (int k = 0; k < Breed_List.size(); k++) {
+                        if (s.equals(Breed_List.get(k).getName())) {
 
                             Intent intentQ = new Intent(getApplicationContext(), DetailCategory.class);
-                            intentQ.putExtra("name_c",Breed_List.get(k).getName());
-                            intentQ.putExtra("image_c",Breed_List.get(k).getCategorie_image());
+                            intentQ.putExtra("name_c", Breed_List.get(k).getName());
+                            intentQ.putExtra("image_c", Breed_List.get(k).getCategorie_image());
                             startActivity(intentQ);
                         }
 
@@ -302,12 +298,12 @@ public class HomeActivity extends AppCompatActivity implements Volley.API {
             final String query = intent.getStringExtra(SearchManager.QUERY);
 
 
-            for (int k=0;k<Breed_List.size();k++) {
-                if (query.equals(Breed_List.get(k).getName())){
+            for (int k = 0; k < Breed_List.size(); k++) {
+                if (query.equals(Breed_List.get(k).getName())) {
 
                     Intent intentQ = new Intent(getApplicationContext(), DetailCategory.class);
-                    intentQ.putExtra("name_c",Breed_List.get(k).getName());
-                    intentQ.putExtra("image_c",Breed_List.get(k).getCategorie_image());
+                    intentQ.putExtra("name_c", Breed_List.get(k).getName());
+                    intentQ.putExtra("image_c", Breed_List.get(k).getCategorie_image());
                     startActivity(intentQ);
                 }
 
@@ -315,6 +311,7 @@ public class HomeActivity extends AppCompatActivity implements Volley.API {
 
         }
     }
+
 
 }
 

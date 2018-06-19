@@ -17,7 +17,7 @@ import java.util.Iterator;
  */
 
 public class JasonParser {
-    Context  mc;
+    Context mc;
 
     public static ArrayList<CategoreItem> parsebreeds(String response) {
         ArrayList<CategoreItem> all_breed = new ArrayList<CategoreItem>();
@@ -29,16 +29,16 @@ public class JasonParser {
 
             if (jsonObject.getString("status").equalsIgnoreCase("success")) {
 
-                JSONObject jsonObject1=jsonObject.getJSONObject("message");////todo massage
+                JSONObject jsonObject1 = jsonObject.getJSONObject("message");////todo massage
                 jsonObject1.names();
                 all_breed.clear();
 
                 Iterator iterator = jsonObject1.keys();
-                while(iterator.hasNext()){
-                    String key = (String)iterator.next();
+                while (iterator.hasNext()) {
+                    String key = (String) iterator.next();
 
                     JSONArray jArray = jsonObject1.getJSONArray(key);
-                    if (jArray.length()>=1) {
+                    if (jArray.length() >= 1) {
                         /*for (int j = 0; j < jArray.length(); j++) {
                           //   data_object = jArray.getJSONObject(j);
 
@@ -58,7 +58,6 @@ public class JasonParser {
                 }
 
 
-
             }
         }   // TRY
 
@@ -68,7 +67,6 @@ public class JasonParser {
             return all_breed;
         }   //  FINALLY
     }
-
 
 
     public static String parse_imagees(String response) {
@@ -83,11 +81,11 @@ public class JasonParser {
 
             if (jsonObject.getString("status").equalsIgnoreCase("success")) {
 
-               // JSONObject object=jsonObject.getJSONObject("message");////todo massage
+                // JSONObject object=jsonObject.getJSONObject("message");////todo massage
 
                 item1 = new CategoreItem();
                 item1.setCategorie_image(jsonObject.getString("message"));
-                s=item1.getCategorie_image();
+                s = item1.getCategorie_image();
 
             }
         }   // TRY
@@ -101,7 +99,7 @@ public class JasonParser {
 
     public static ArrayList<Animal> parseAnimals(String r) {
 
-        ArrayList<Animal> all=new ArrayList<Animal>();
+        ArrayList<Animal> all = new ArrayList<Animal>();
 
         Animal item;
         String s = null;
@@ -109,9 +107,9 @@ public class JasonParser {
             JSONObject data_object;
 
             JSONObject js = new JSONObject(r);
-                JSONArray ja=js.getJSONArray("message");////todo massage
+            JSONArray ja = js.getJSONArray("message");////todo massage
 
-            for (int j=0;j <ja.length();j++) {
+            for (int j = 0; j < ja.length(); j++) {
                 String da = ja.getString(j);
 
                 item = new Animal();
@@ -119,7 +117,7 @@ public class JasonParser {
                 all.add(item);
             }
 
-           // }
+            // }
         }   // TRY
 
         catch (JSONException e) {
@@ -127,7 +125,7 @@ public class JasonParser {
         } finally {
         }
 
-            return all;
-        }
+        return all;
+    }
 
 }

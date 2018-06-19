@@ -22,11 +22,11 @@ import static com.example.user.animal_breedapp.DetailCategory.name_re;
  */
 
 public class Animal_Adapter extends RecyclerView.Adapter<Animal_Adapter.viewHolder> {
-    List<Animal> m;
-    private Context mcontext;
-    public Animal obj;
     public static int pos;
     public static int x;
+    public Animal obj;
+    List<Animal> m;
+    private Context mcontext;
 
     public Animal_Adapter(List<Animal> m, Context mcontext) {
         this.m = m;
@@ -72,7 +72,7 @@ public class Animal_Adapter extends RecyclerView.Adapter<Animal_Adapter.viewHold
             intent.putExtra("cat_na", name_re);
             intent.putExtra("cat_im", image_re);
 
-           itemView.getContext().startActivity(intent);
+            itemView.getContext().startActivity(intent);
 
 
         }

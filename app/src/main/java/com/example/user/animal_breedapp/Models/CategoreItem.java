@@ -8,11 +8,12 @@ public class CategoreItem {
     private String name;
     private String Categorie_image;
 
-    public CategoreItem(){
+    public CategoreItem() {
     }
-    public CategoreItem(String name,String image){
-        this.name=name;
-        this.Categorie_image=image;
+
+    public CategoreItem(String name, String image) {
+        this.name = name;
+        this.Categorie_image = image;
     }
 
     public String getName() {

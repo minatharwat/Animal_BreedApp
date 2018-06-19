@@ -20,11 +20,11 @@ import java.util.List;
  */
 
 public class Categorie_RecycleAdapter extends RecyclerView.Adapter<Categorie_RecycleAdapter.viewHolder> {
-    List<CategoreItem> m;
-    private Context mcontext;
-    public CategoreItem obj;
     public static int pos;
     public static int x;
+    public CategoreItem obj;
+    List<CategoreItem> m;
+    private Context mcontext;
 
     public Categorie_RecycleAdapter(List<CategoreItem> m, Context mcontext) {
         this.m = m;
@@ -42,8 +42,8 @@ public class Categorie_RecycleAdapter extends RecyclerView.Adapter<Categorie_Rec
     @Override
     public void onBindViewHolder(final viewHolder holder, int position) {
         obj = m.get(position);
-      //  if (x==0) {
-            Picasso.with(mcontext).load(obj.getCategorie_image()).error(R.drawable.no_img).placeholder(R.drawable.no_img).into(holder.imageView);
+        //  if (x==0) {
+        Picasso.with(mcontext).load(obj.getCategorie_image()).error(R.drawable.no_img).placeholder(R.drawable.no_img).into(holder.imageView);
         /*}else {
         Picasso.with(mcontext)
                 .load(obj.getCategorie_image())
@@ -90,8 +90,6 @@ public class Categorie_RecycleAdapter extends RecyclerView.Adapter<Categorie_Rec
             intent.putExtra("name_c", m.get(pos).getName());
             intent.putExtra("image_c", m.get(pos).getCategorie_image());
             itemView.getContext().startActivity(intent);
-
-
 
 
         }

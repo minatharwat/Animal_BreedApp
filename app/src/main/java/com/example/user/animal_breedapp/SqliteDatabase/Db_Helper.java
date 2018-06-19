@@ -24,7 +24,7 @@ public class Db_Helper extends SQLiteOpenHelper {
         final String SQL_CREATE_USER_TABLE = "CREATE TABLE " + DatabaseContract.Categorie.TABLE_NAME + " ("
                 + DatabaseContract.Categorie._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + DatabaseContract.Categorie.U_COLUMN_NAME + " TEXT NOT NULL,"
-                + DatabaseContract.Categorie.U_COLUMN_image +" TEXT NOT NULL" + ");";
+                + DatabaseContract.Categorie.U_COLUMN_image + " TEXT NOT NULL" + ");";
 
 
         db.execSQL(SQL_CREATE_USER_TABLE);
